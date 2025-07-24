@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 51 100% 50%; /* #FFD700 - Golden */
+  --accent: 4 86% 69%; /* #FF6B6B - Red accent */
+  --background: 0 0% 4%; /* #0A0A0A - Dark background */
+  --dark-mode: 0 0% 0%; /* #000000 - Pure black */
+  --foreground: 0 0% 100%; /* White text */
+  --muted: 0 0% 20%; /* Dark gray */
+  --border: 0 0% 15%; /* Border color */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Orbitron, monospace;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow: hidden;
+  user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+.game-ui {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.game-ui > * {
+  pointer-events: auto;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px currentcolor, 0 0 20px currentcolor, 0 0 30px currentcolor;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    text-shadow: 0 0 10px currentcolor, 0 0 20px currentcolor, 0 0 30px currentcolor;
+  }
+
+  to {
+    text-shadow: 0 0 20px currentcolor, 0 0 30px currentcolor, 0 0 40px currentcolor;
+  }
+}
+
+.game-button {
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+  border: 2px solid hsl(var(--primary));
+  color: hsl(var(--background));
+  font-family: Orbitron, monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.game-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px hsl(var(--primary));
+}
+
+.score-display {
+  background: rgb(0 0 0 / 80%);
+  border: 2px solid hsl(var(--primary));
+  backdrop-filter: blur(10px);
+}
