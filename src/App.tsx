@@ -1,9 +1,11 @@
-import React from 'react';
-import Game3D from './components/Game3D';
-import './App.css';
+import DonkeyKongAtari from './components/DonkeyKongAtari'
 
 function App() {
-  return <Game3D />;
+  return (
+    <div className="min-h-screen bg-black">
+      <DonkeyKongAtari />
+    </div>
+  )
 }
 
-export default App;
+export default App
